@@ -74,12 +74,12 @@ print 'baseline: {}'.format(y_train.sum()*1.0 / len(y_train)) # the minority cla
 print ''
 
 # Define the model parameters to run
-common_params={'n_estimators':100, 'criterion':'entropy', 'n_jobs':-1}
+common_params={'n_estimators':100, 'criterion':'entropy', 'n_jobs':1}
 params = [
     {}, 
-    {'class_weight':'auto'}, 
+    {'class_weight':'balanced'}, 
     {'class_weight':'balanced_subsample'},
-    {'balanced':True}
+    {'class_weight':'balanced_bootstrap'}
 ]
 
 p = y_train.sum()
